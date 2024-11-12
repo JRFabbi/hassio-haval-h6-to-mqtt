@@ -162,12 +162,26 @@ const sensorTopics = {
     device_class: "lock",
     entity_type: "binary_sensor",    
     icon: "mdi:car-door-lock",
+    actionable: {
+                  action: "lockCar",
+                  description: "Abre/Fecha veiculo",
+                  entity_type: "button",
+                  icon: "mdi:gesture-tap-button",
+                  link_type: "press", //(sync: sincroniza os status, toggle: invertido, press: acionamento sem sincronização)
+                }
   },
   2206001: {
     description: "Porta-Malas", //(1: Aberto 0: Fechado)
     device_class: "door",
     entity_type: "binary_sensor",
     icon: "mdi:car-back",
+    actionable: {
+                  action: "lockTrunk",
+                  description: "Abre/Fecha porta-malas",
+                  entity_type: "button",
+                  icon: "mdi:gesture-tap-button",
+                  link_type: "press", //(sync: sincroniza os status, toggle: invertido, press: acionamento sem sincronização)
+                }
   },
   2206002: {
     description: "Porta Dianteira Esquerda", //(1: Aberta 0: Fechada)

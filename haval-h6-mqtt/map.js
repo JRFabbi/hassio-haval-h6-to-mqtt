@@ -164,7 +164,7 @@ const sensorTopics = {
     icon: "mdi:car-door-lock",
     actionable: {
                   action: "lockCar",
-                  description: "Travamento das portas do veículo",
+                  description: "Fecha as portas do veículo",
                   entity_type: "button",
                   icon: "mdi:key",
                   link_type: "press", //(sync: sincroniza os status, toggle: invertido, press: acionamento sem sincronização)

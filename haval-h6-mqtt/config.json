@@ -1,11 +1,11 @@
 {
-  "name": "GWM Brasil Haval H6 com MQTT",
+  "name": "GWM Brasil Haval H6 com MQTT by JRFabbi",
   "version": "0.0.13",
   "slug": "hassio_haval_h6_to_mqtt",
   "description": "Integração do GWM Haval H6 com o Home Assistant usando MQTT.",
   "init": false,
   "arch": ["armhf", "armv7", "aarch64", "amd64", "i386"],
-  "url": "https://github.com/havaleiros/hassio-haval-h6-to-mqtt",
+  "url": "https://github.com/JRFabbi/hassio-haval-h6-to-mqtt",
   "map": ["config:rw"],
   "options": {
     "refresh_time": 30,

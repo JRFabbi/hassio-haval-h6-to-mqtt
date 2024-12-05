@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.14
+- Teste - fechamento das portas
+
 ## 0.0.13
 - Adicionado sensor para indicar se o carro está ligado ou desligado: sensor.haval_*_estado_do_motor
 - Atualizado o arquivo README com instruções de configuração revisadas.

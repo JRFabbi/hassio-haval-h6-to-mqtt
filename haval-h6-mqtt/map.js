@@ -162,6 +162,13 @@ const sensorTopics = {
     device_class: "lock",
     entity_type: "binary_sensor",    
     icon: "mdi:car-door-lock",
+    actionable: {
+                  action: "lockCar",
+                  description: "Travamento das portas do veículo",
+                  entity_type: "button",
+                  icon: "mdi:key",
+                  link_type: "press", //(sync: sincroniza os status, toggle: invertido, press: acionamento sem sincronização)
+                }
   },
   2206001: {
     description: "Porta-Malas", //(1: Aberto 0: Fechado)

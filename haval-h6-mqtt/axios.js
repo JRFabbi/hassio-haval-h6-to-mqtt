@@ -109,7 +109,7 @@ const door = {
     try {
       return await axios.sendCmd({
         "0x05": {
-          "switchOrder": ON ? "1" : "2"
+          "switchOrder": ON ? "2" : "1"
         }
       },
         0,

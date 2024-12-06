@@ -36,8 +36,8 @@ const headers = {
   systemtype: "2",
   regioncode: "BR",
   country: "BR",
-  get accessToken(){return storage.getItem("accessToken");},
-  get refreshToken(){return storage.getItem("refreshToken");}
+  get accessToken() { return storage.getItem("accessToken"); },
+  get refreshToken() { return storage.getItem("refreshToken"); }
 };
 
 axios.sendCmd = async (instructions, remoteType, securityPassword, seqNo, type, vin) => {
@@ -45,13 +45,13 @@ axios.sendCmd = async (instructions, remoteType, securityPassword, seqNo, type, 
   try {
     let options = {
       headers,
-    };   
+    };
 
     const res = await axios.post(
       `${apiVehicleEndpoint}/vehicle/T5/sendCmd`,
       {
         instructions,
-        remoteType, 
+        remoteType,
         securityPassword,
         seqNo,
         type,
@@ -77,50 +77,49 @@ axios.getCarInfo = (path) => {
 const commands = {
   async airConditioner(PIN, VIN, ON) {
     let seqNo = require('crypto').randomUUID().replaceAll('-', '') + '1234';
-    
+
     try {
       return await axios.sendCmd({
-                            "0x04": {
-                              "airConditioner": {
-                                "operationTime": "15",
-                                "switchOrder": ON ? "1" : "2",
-                                "temperature": "18"
-                              }
-                            }
-                          },
-                          0,
-                          md5(PIN),
-                          seqNo,
-                          2,
-                          VIN.toUpperCase()
-                        );
-      
-      } catch(e){
-        console.error(`***Error executing action airConditioner***`);
-        console.error(e.message);
-      }
-  }
-  
+        "0x04": {
+          "airConditioner": {
+            "operationTime": "15",
+            "switchOrder": ON ? "1" : "2",
+            "temperature": "18"
+          }
+        }
+      },
+        0,
+        md5(PIN),
+        seqNo,
+        2,
+        VIN.toUpperCase()
+      );
+
+    } catch (e) {
+      console.error(`***Error executing action airConditioner***`);
+      console.error(e.message);
+    }
+  },
   async lockCar(PIN, VIN, ON) {
     let seqNo = require('crypto').randomUUID().replaceAll('-', '') + '1234';
-    
+
     try {
       return await axios.sendCmd({
-                            "0x05": {
-                              "switchOrder": ON ? "1" : "2"
-                            }
-                          },
-                          0,
-                          md5(PIN),
-                          seqNo,
-                          2,
-                          VIN.toUpperCase()
-                        );
-      
-      } catch(e){
-        console.error(`***Error executing action lockCar***`);
-        console.error(e.message);
-      }
+        "0x05": {
+          "switchOrder": ON ? "1" : "2"
+        }
+      },
+        0,
+        md5(PIN),
+        seqNo,
+        2,
+        VIN.toUpperCase()
+      );
+
+    } catch (e) {
+      console.error(`***Error executing action lockCar***`);
+      console.error(e.message);
+    }
   }
 }
 

@@ -126,4 +126,4 @@ const door = {
   }
 }
 
-module.exports = { axios, commands };
+module.exports = { axios, ac, door };

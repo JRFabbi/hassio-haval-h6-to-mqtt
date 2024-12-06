@@ -73,6 +73,7 @@ axios.getCarInfo = (path) => {
   });
 };
 
+//0x04 airCon - 0x05 portas - 0x09 porta-malas - 0x0A confg Banco - 0x0B degelo - 0x0C purificador de ar - 0x11 circulação de ar - 0x19 - aquecimento de volante
 const commands = {
   async airConditioner(PIN, VIN, ON) {
     let seqNo = require('crypto').randomUUID().replaceAll('-', '') + '1234';
@@ -96,6 +97,28 @@ const commands = {
       
       } catch(e){
         console.error(`***Error executing action airConditioner***`);
+        console.error(e.message);
+      }
+  }
+  
+  async lockCar(PIN, VIN, ON) {
+    let seqNo = require('crypto').randomUUID().replaceAll('-', '') + '1234';
+    
+    try {
+      return await axios.sendCmd({
+                            "0x05": {
+                              "switchOrder": ON ? "1" : "2"
+                            }
+                          },
+                          0,
+                          md5(PIN),
+                          seqNo,
+                          2,
+                          VIN.toUpperCase()
+                        );
+      
+      } catch(e){
+        console.error(`***Error executing action lockCar***`);
         console.error(e.message);
       }
   }

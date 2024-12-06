@@ -1,6 +1,6 @@
 const mqtt = require("mqtt");
 var slugify = require("slugify");
-const { commands } = require("./axios");
+const { ac, door } = require("./axios");
 const storage = require("./storage");
 
 require("dotenv").config();

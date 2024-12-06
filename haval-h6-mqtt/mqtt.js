@@ -195,6 +195,15 @@ const ActionableAndLink = {
                   console.error(e.message);
                 }
               }
+              else if(String(topicsAndActions[key].action) === "lockCar" && ["ON", "PRESS", "TRUE"].includes(messageValue)){
+                try {
+                  let acData = await commands.lockCar(PIN, VIN, true);
+                  console.info("Command lockCar executed: ", acData);
+                } catch(e){
+                  console.error(`***Error executing action [${String(topicsAndActions[key].action)}]***`);
+                  console.error(e.message);
+                }
+              }
             }
             else if (topic === String(topicsAndActions[key].topic_to_monitor_parent) && topicsAndActions[key].link_type && ["sync", "toggle"].includes(String(topicsAndActions[key].link_type))){
               try {

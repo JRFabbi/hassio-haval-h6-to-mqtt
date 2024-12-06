@@ -74,7 +74,7 @@ axios.getCarInfo = (path) => {
 };
 
 //0x04 airCon - 0x05 portas - 0x09 porta-malas - 0x0A confg Banco - 0x0B degelo - 0x0C purificador de ar - 0x11 circulação de ar - 0x19 - aquecimento de volante
-const commands = {
+const ac = {
   async airConditioner(PIN, VIN, ON) {
     let seqNo = require('crypto').randomUUID().replaceAll('-', '') + '1234';
 
@@ -99,7 +99,10 @@ const commands = {
       console.error(`***Error executing action airConditioner***`);
       console.error(e.message);
     }
-  },
+  }
+};
+
+const door = {
   async lockCar(PIN, VIN, ON) {
     let seqNo = require('crypto').randomUUID().replaceAll('-', '') + '1234';
 

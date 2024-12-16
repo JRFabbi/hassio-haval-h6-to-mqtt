@@ -160,7 +160,7 @@ const sensorTopics = {
   2208001: {
     description: "Estado da Trava", //(1: Destravado 0: Travado)
     device_class: "lock",
-    entity_type: "switch",    
+    entity_type: "binary_sensor",    
     icon: "mdi:car-door-lock",
     actionable: {
                   action: "lockCar",
